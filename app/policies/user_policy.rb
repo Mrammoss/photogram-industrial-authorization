@@ -10,6 +10,18 @@ class UserPolicy
     true
   end
 
+  def liked?
+    user == current_user
+  end
+
+  def discover?
+    true
+  end
+
+  def feed?
+    user == current_user
+  end
+
   def show_photos?
     user == current_user ||
       !user.private? ||
@@ -17,6 +29,6 @@ class UserPolicy
   end
 
   def show_pending_users?
-    user = current_user
+    user == current_user
   end
 end
