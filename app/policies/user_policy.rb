@@ -15,4 +15,8 @@ class UserPolicy
       !user.private? ||
       user.followers.include?(current_user)
   end
+
+  def show_pending_users?
+    user = current_user
+  end
 end
